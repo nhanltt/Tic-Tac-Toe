@@ -1,3 +1,5 @@
+# Program of game "Tic-Tac-Toe" 
+# Writen by Nhan Thi Thanh Le at 12/03/2020
 import os
 import random
 
