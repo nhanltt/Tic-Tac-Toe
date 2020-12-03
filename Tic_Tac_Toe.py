@@ -1,9 +1,11 @@
 import os
+import random
+
 
 # print the board of game on the screen
 def display_board(board):
     os.system('cls')
-    exboard = ['#','1','2','3','4','5','6','7','8','9']
+    exboard = ['#', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     print(exboard[1] + '|' + exboard[2] + '|' + exboard[3])
     print('-+-+-')
     print(exboard[4] + '|' + exboard[5] + '|' + exboard[6])
@@ -49,9 +51,6 @@ def win_check(board, mark):
     return False
 
 
-import random
-
-
 # Random who is the first player 
 def choose_first():
     return random.randint(1, 2)
@@ -71,7 +70,7 @@ def full_board_check(board):
 
 
 # Player choose his/her position 
-def player_choice(board,name):
+def player_choice(board, name):
     n = 0
     while n not in [1, 2, 3, 4, 5, 6, 7, 8, 9] or not space_check(board, n):
         os.system('cls')
@@ -84,7 +83,7 @@ def player_choice(board,name):
 # Ask the players if they want to restart a new game or exit from game 
 def replay():
     s = '1'
-    while (not s.lower() in 'yesno') or s.isnumeric() :
+    while (not s.lower() in 'yesno') or s.isnumeric():
         print("Do you want to play again? Please enter 'Yes' or 'No'", end=' ')
         s = input()
     return s.lower() == 'yes'
@@ -121,7 +120,7 @@ while True:
 
         # Print the board and get the choice of player 
         display_board(board)
-        i = player_choice(board,name)
+        i = player_choice(board, name)
         board[i] = player[name]
 
         # Check if player is winner or the game is tie
@@ -135,7 +134,7 @@ while True:
                 print('TIE GAME!')
                 game_on = False
 
-    # Change the turn of player 
+        # Change the turn of player
         if name % 2 == 0:
             name = 1
         else:
